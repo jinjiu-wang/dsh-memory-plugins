@@ -1,0 +1,34 @@
+# 依赖与构建产物
+node_modules/
+dist/
+
+# 运行时数据（绝不该进仓库）
+*.jsonl
+*.db
+*.sqlite
+*.sqlite3
+*.pyc
+__pycache__/
+.install-state.json
+settings.json
+link.json
+character/
+legacy/
+summaries/
+roles/
+guard/
+interop/
+
+# 备份、日志、临时文件
+*.log
+*.tmp
+*.tmp-*
+*.bak
+*.bak-*
+*.corrupt-*.json
+
+# 系统与编辑器
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

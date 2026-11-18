@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Xiaofeiyu Whale",
+    "description": "Standalone memory plugin: runs a Python SQLite memory store, with a sidebar panel for stats, facts, summaries and search; starts with DSH and auto-syncs both ways with Ai Love, with a switch in each panel."
+  }
+}

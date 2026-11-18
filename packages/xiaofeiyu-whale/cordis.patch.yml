@@ -1,0 +1,16 @@
+# 小肥鱼鲸鱼娘 的 bundle patch。
+#
+# 两件事：
+#   1. 在 profile 根挂 /xiaofeiyu/* 只读/控制接口，给左侧栏面板用；
+#   2. 带上前端 client bundle（侧边栏图标 + 面板），DSH 启动即加载。
+# Python 记忆服务由 host 在 apply() 时自动拉起，不需要额外守护进程。
+- insert:
+    - id: xiaofeiyu-whale
+      name: 'xiaofeiyu-whale'
+      config:
+        dataDir: ''
+        dbPath: ''
+        bridgeDir: ''
+        autoInterop: true
+        intervalSeconds: 60
+        python: ''

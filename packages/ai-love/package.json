@@ -1,0 +1,62 @@
+{
+  "name": "ai-love",
+  "version": "0.20.4",
+  "description": "爱ai：记忆压缩 + 角色卡 + 隐私记录 + 跨插件互通。事实型记忆卡压缩；待确认事项可在面板回复并回传 QQ AI 确认；角色卡与隐私记录独立存档；与 Python 记忆系统通过规范 JSONL 双向互通；面板模块备份到非系统盘并支持一键找回；QQ 会话日志可联接到非系统盘且落盘不设字节上限；QQ AI 运行记忆逐字节实时备份到非系统盘。",
+  "type": "module",
+  "license": "MIT",
+  "private": true,
+  "exports": {
+    ".": "./src/host/panel.mjs",
+    "./backend": "./src/host/backend.mjs",
+    "./evolve": "./src/evolve/index.mjs",
+    "./client": "./src/client/index.js",
+    "./safehouse": "./src/safehouse/extension.mjs",
+    "./package.json": "./package.json",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "src",
+    "bridge",
+    "cordis.patch.yml",
+    "link-context.mjs",
+    "memory-backup.mjs",
+    "install.mjs",
+    "uninstall.mjs",
+    "verify.mjs",
+    "selfcheck.mjs",
+    "test",
+    "locale",
+    "icon.svg",
+    "README.md",
+    "COMPACTION_PROTOCOL.md",
+    "使用说明.md",
+    "VERSION",
+    "LICENSE",
+    "PURE.md"
+  ],
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true
+    }
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "*",
+    "@deepseek-ai/dsh-compaction": "*",
+    "@deepseek-ai/dsh-llm": "*",
+    "@deepseek-ai/dsh-session": "*"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "pureBuild": {
+    "personaData": false,
+    "builtAt": "2026-11-18T04:27:11.629Z",
+    "note": "纯功能发行版：不含人设、角色卡、agent preset 或记忆数据"
+  }
+}

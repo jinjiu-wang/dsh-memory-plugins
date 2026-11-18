@@ -1,0 +1,49 @@
+{
+  "name": "xiaofeiyu-whale",
+  "version": "0.2.0",
+  "description": "小肥鱼鲸鱼娘：独立记忆插件（0.2.0 起含「待确认」记忆与协议适配层）。托管 Python SQLite 记忆库，侧边栏查看统计、事实、摘要与检索结果；DSH 启动即自动运行，并与「爱ai」通过规范 JSONL 自动双向联通，两边面板各有一个总开关。纯记忆功能，不含任何人设或角色设定。",
+  "type": "module",
+  "license": "MIT",
+  "private": true,
+  "exports": {
+    ".": "./src/host/index.mjs",
+    "./client": "./src/client/index.js",
+    "./package.json": "./package.json",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "src",
+    "python",
+    "cordis.patch.yml",
+    "icon.svg",
+    "locale",
+    "README.md",
+    "VERSION",
+    "install.mjs",
+    "uninstall.mjs",
+    "verify.mjs",
+    "selfcheck.mjs",
+    "test",
+    "LICENSE",
+    "PURE.md"
+  ],
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true
+    }
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "pureBuild": {
+    "personaData": false,
+    "builtAt": "2026-11-18T04:27:11.629Z",
+    "note": "纯功能发行版：不含人设、角色卡、agent preset 或记忆数据"
+  }
+}

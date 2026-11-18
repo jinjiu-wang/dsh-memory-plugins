@@ -1,0 +1,34 @@
+# 爱ai 的 bundle patch。
+#
+# 这个 bundle 负责三件事：
+#   1. 在 profile 根挂一个只读面板接口（/ai-love/state），给左侧栏的「爱ai」面板看压缩痕迹；
+#   2. 带上前端 client bundle（侧栏图标 + 面板）；
+#   3. 让包名以「裸包名」出现在 Loader 里 —— DSH 的客户端模块扫描只认裸包名/路径行，
+#      子路径行（如 ai-love/panel）不会被列入启动图，前端就永远不会加载。
+#
+# 压缩后端是子路径 ai-love/backend，挂在 QQ preset 的 isolate 小组里
+# （dsh/agent-presets/qq-chat-v2/agent.cordis.yml），只接管 QQ 会话，
+# 不碰 Web GUI 的全局压缩。
+- insert:
+    - id: ai-love-panel
+      name: 'ai-love'
+      config:
+        memoryDir: ''
+        memoryBridgeDir: ''
+        backupDir: ''
+        contextLinkDir: ''
+        memoryBackup: true
+        memoryBackupDir: ''
+        # 安全屋：共享目录（留空 = DSH_SAFEHOUSE_DIR / ~/.dsh/safehouse）
+        safehouseDir: ''
+# 自进化板块：只写 <memoryDir>/.evolve/，记忆正文只读。
+# 必须用包内子路径名，写成 ai-love-evolve 会解析失败（loader 只会记一跳日志）。
+- insert:
+    - id: ai-love-evolve
+      name: 'ai-love/evolve'
+      config:
+        memoryDir: ''
+        intervalSeconds: 1800
+        runOnStart: false
+        maxActions: 8
+        maxAttempts: 3
